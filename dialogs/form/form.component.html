@@ -1,0 +1,27 @@
+<div class="p-1">
+  <app-section-header
+    [title]="title"
+    [buttons]="header_actions"
+    (event)="btnEvent($event)"
+  >
+  </app-section-header>
+
+  <div class="f-row">
+    <form [formGroup]="form" class="grow">
+      <div *ngFor="let field of control_map" class="f-row gy-3 gx-0 py-2">
+        <app-form-field
+          *ngIf="field.type != types.checkbox"
+          [field]="field"
+          class="grow"
+          (keyup.enter)="submit()"
+          (event)="submit()"
+        ></app-form-field>
+        <div *ngIf="field.type == types.checkbox" class="grow pb-3 pl-3">
+          <mat-checkbox [formControl]="field.control" color="primary">{{
+            field.label
+          }}</mat-checkbox>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

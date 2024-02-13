@@ -1,0 +1,51 @@
+<div *ngIf="hasData; else empty">
+    <mat-table [dataSource]="dataSource"
+        matSort>
+
+
+        <ng-component *ngFor="let column of columns">
+            <ng-container [matColumnDef]="column">
+
+                <mat-header-cell *matHeaderCellDef
+                    mat-sort-header>
+                    <label class="mat-body-2">{{ column | titleCaseAll }}</label>
+                </mat-header-cell>
+
+                <mat-cell *matCellDef="let row">
+                    <label class="mat-body-1">{{ row[column] | displayRelated:column }}</label>
+                </mat-cell>
+
+            </ng-container>
+        </ng-component>
+
+        <ng-component matColumnDef="actions">
+            <mat-header-cell *matHeaderCellDef
+                class="actions"></mat-header-cell>
+
+            <mat-cell *matCellDef="let row"
+                class="actions">
+                <app-button-bar [buttons]="actions"
+                    (event)="emit($event, row)">
+                </app-button-bar>
+            </mat-cell>
+        </ng-component>
+
+
+        <mat-header-row *matHeaderRowDef="fullColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: fullColumns"></mat-row>
+    </mat-table>
+
+    <div class="row justify-content-center align-items-center g-0">
+        <mat-paginator [pageSizeOptions]="[20, 50, 100]"
+            showFirstLastButtons>
+        </mat-paginator>
+    </div>
+</div>
+
+
+<ng-template #empty>
+    <app-attention-message message="Empty"
+        [textColor]="MatColor.primary"
+        [bgColor]="MatColor.primary">
+    </app-attention-message>
+</ng-template>

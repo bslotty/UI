@@ -1,0 +1,14 @@
+<div class="f-row">
+    <div class="grow">
+        <label class="mat-subtitle-2">{{ title | titlecase }}</label>
+    </div>
+
+    <ng-container *ngIf="buttons.length > 0">
+        <app-button-bar [buttons]="buttons"
+        (event)="emit($event)"></app-button-bar>
+    </ng-container>
+</div>
+
+<div>   
+    <hr >
+</div>

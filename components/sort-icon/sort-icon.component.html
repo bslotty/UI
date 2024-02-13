@@ -1,0 +1,28 @@
+<a (click)="sortEvent(name)">
+    <div class="f-row j-start ">
+        <label class="mat-body-2">{{ sort.enumList[name] }}</label>
+
+        <div *ngIf="sort.active == name; else inactive">
+            <app-icon
+                *ngIf="sort.direction == SortDirection.Asc"
+                name='chevron-up'
+                [color]="MatColor.accent"
+            ></app-icon>
+            <app-icon
+                *ngIf="sort.direction == SortDirection.Desc"
+                name='chevron-down'
+                [color]="MatColor.warn"
+            ></app-icon>
+        </div>
+
+    </div>
+
+</a>
+
+<ng-template #inactive>
+    <app-icon
+    *ngIf="sort.direction == SortDirection.None"
+    name='minus'
+    [color]="MatColor.disabled"
+></app-icon>
+</ng-template>

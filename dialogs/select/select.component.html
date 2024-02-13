@@ -1,0 +1,34 @@
+<app-section-header [title]="title"
+    [buttons]="headerActions"
+    (event)="headerEvent($event)">
+</app-section-header>
+
+<div class="row justify-content-center align-items-center py-2 g-0">
+    <div class="col">
+        <ng-container *ngFor="let control of searchFormMap">
+            <app-form-field [field]="control"></app-form-field>
+        </ng-container>
+    </div>
+</div>
+
+<hr>
+
+<div *ngFor="let option of WhiteList"
+    class="row justify-content-center align-items-center my-2 py-1 g-0"
+    (click)="selectOption(option)">
+    <div class="col">
+        <label class="mat-subheading-1 {{ data.active == option ? 'color-accent' : 'color-primary' }}">
+            {{ option | titlecase }}
+        </label>
+    </div>
+
+    <div class="col-auto">
+        <a mat-mini-fab
+            color="transparent"
+            class="mat-elevation-z0">
+            <app-icon [name]="data.active == option ? 'check-circle' : 'circle' "
+                [color]="data.active == option ? MatColor.accent : MatColor.primary ">
+            </app-icon>
+        </a>
+    </div>
+</div>

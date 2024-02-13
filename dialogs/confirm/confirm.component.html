@@ -1,0 +1,12 @@
+<div class="p-1">
+  <app-section-header
+    [title]="title"
+    [buttons]="header_actions"
+    (event)="header_event($event)"
+  >
+  </app-section-header>
+
+  <div class="f-row j-center a-center p-5">
+    <label class="mat-body-2">{{ message }}</label>
+  </div>
+</div>

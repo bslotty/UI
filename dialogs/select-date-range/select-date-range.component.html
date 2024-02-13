@@ -1,0 +1,15 @@
+<app-section-header [title]="title"
+    [buttons]="headerActions"
+    (event)="headerEvent($event)">
+</app-section-header>
+
+<form [formGroup]="form">
+    <div class="row justify-content-center align-items-center">
+        <div class="col">
+            <app-form-field [field]="controls[0]"></app-form-field>
+        </div>
+        <div class="col">
+            <app-form-field [field]="controls[1]"></app-form-field>
+        </div>
+    </div>
+</form>

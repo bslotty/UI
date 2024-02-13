@@ -1,0 +1,19 @@
+<app-section-header [title]="title"
+    [buttons]="headerActions"
+    (event)="headerEvent($event)">
+</app-section-header>
+
+
+<div *ngFor="let option of list"
+    class="f-row">
+
+    <div class="grow">
+        <label class="mat-body-1">{{ option }}</label>
+    </div>
+
+    <div class="p-1">
+        <app-button-bar [buttons]="sortActions"
+            (event)="sortEvent($event, option)">
+        </app-button-bar>
+    </div>
+</div>
