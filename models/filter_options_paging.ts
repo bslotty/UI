@@ -1,20 +1,16 @@
 export class FilterOptionsPaging {
-  start: number = 0;
-  length: number = 7;
-  current_page: number = 1;
-  page_limit: number = 0;
-
-  total_items: number = 0;
-  excluded: number = 0;
+  enabled      : boolean = false;
+  start        : number  = 0;
+  length       : number  = 7;
+  current_page: number   = 1;
+  page_limit   : number  = 0;
+  total_items : number   = 0;
+  excluded    : number   = 0;
 
   constructor() {}
 
   filter<T>(list: T[]): T[] {
-    let visible_items = list.filter(
-      (a, i) =>
-        i < this.length * this.current_page &&
-        i > this.length * this.current_page - this.length
-    );
+    let visible_items = list.filter((a, i) => i < this.length * this.current_page && i > this.length * this.current_page - this.length);
 
     this.total_items = list.length;
 

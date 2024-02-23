@@ -11,9 +11,7 @@ export class Sort {
     }
 
     setDirection(direc: SortDirection): Sort {
-        console.log("Direction Updated To: ", direc, this.direction);
         this.direction = direc;
-
         return this;
     }
 

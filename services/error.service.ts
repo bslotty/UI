@@ -8,7 +8,7 @@ import { filter } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class ErrorService {
-
+  phaseList = PhaseType;
   phase: PhaseType = PhaseType.Unchecked;
   message: string = "";
 
