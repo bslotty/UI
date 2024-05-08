@@ -60,7 +60,7 @@
       [type]="password_type"
     />
     <span matSuffix (click)="togglePasswordVisibility()">
-      <app-icon [name]="password_icon" [color]="MatColor.primary"></app-icon>
+      <app-icon [name]="password_icon" [color]="Color.primary"></app-icon>
     </span>
   </ng-container>
 
@@ -79,7 +79,7 @@
         *ngIf="field.control.enabled"
         name="calendar"
         (click)="picker.open()"
-        [color]="MatColor.primary"
+        [color]="Color.primary"
       >
       </app-icon>
     </div>

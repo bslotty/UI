@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { MatColor } from '../../models/enums/mat_color';
+import { Color } from '../../models/enums/mat_color';
 import { Sort, SortDirection } from '../../models/sort';
 
 @Component({
@@ -15,7 +15,7 @@ export class SortIconComponent implements OnInit {
 
   @Output() event: EventEmitter<Sort> = new EventEmitter()
 
-  readonly MatColor = MatColor;
+  readonly Color = Color;
   readonly SortDirection = SortDirection;
 
   constructor() { }

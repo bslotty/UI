@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { MatColor } from '../../models/enums/mat_color';
+import { Color } from '../../models/enums/mat_color';
 
 @Component({
   selector: 'app-icon',
@@ -9,10 +9,12 @@ import { MatColor } from '../../models/enums/mat_color';
 export class IconComponent implements OnInit {
 
   @Input() name: string    = "bug";
-  @Input() color: MatColor = MatColor.warn;
-  @Input() size: number    = 24;
+  @Input() color: Color = Color.warn;
+  @Input() size: number    = 36;
 
-  readonly MatColor = MatColor;
+  @Input() svg: boolean = false;
+
+  readonly Color = Color;
 
   constructor() { }
 

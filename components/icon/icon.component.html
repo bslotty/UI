@@ -1,4 +1,16 @@
-<img src="./assets/icons/{{ name }}.svg"
-    class="mat-{{ MatColor[color] }}"
-    [width]="size"
-    [height]="size" />
+@if(svg) {
+<img
+  src="./assets/icons/{{ name }}.svg"
+  class="mat-{{ Color[color] }}"
+  [width]="size"
+  [height]="size"
+/>
+
+} @else {
+<span
+  class="material-symbols-outlined {{ Color[color] }}"
+  [attr.class.width]="size"
+  [attr.class.height]="size"
+  >{{ name }}</span
+>
+}

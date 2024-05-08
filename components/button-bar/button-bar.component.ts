@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { EventActions } from '../../models/enums/event_actions';
-import { MatColor } from '../../models/enums/mat_color';
+import { Color } from '../../models/enums/mat_color';
 import { Button } from '../../models/icon_button';
 
 @Component({
@@ -14,7 +14,7 @@ export class ButtonBarComponent implements OnInit {
   @Input() buttons: Button[] = [];
   @Output() event: EventEmitter<EventActions> = new EventEmitter();
 
-  readonly MatColor = MatColor;
+  readonly Color = Color;
 
   constructor() { }
 

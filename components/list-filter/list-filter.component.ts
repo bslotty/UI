@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { MatColor } from '../../models/enums/mat_color';
+import { Color } from '../../models/enums/mat_color';
 import { FilterOptions } from '../../models/filter_options';
 import { Sort, SortDirection } from '../../models/sort';
 import { FilterOptionsRange } from '../../models/filter_options_range';
@@ -10,7 +10,7 @@ import { FilterOptionsRange } from '../../models/filter_options_range';
   styles: [],
 })
 export class ListFilterComponent implements OnInit {
-  readonly MatColor = MatColor;
+  readonly Color = Color;
   readonly SortDirection = SortDirection;
 
   @Output()

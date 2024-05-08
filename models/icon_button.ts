@@ -1,33 +1,33 @@
 
-import { MatColor } from "./enums/mat_color";
+import { Color } from "./enums/mat_color";
 import { EventActions } from "./enums/event_actions";
 import { ButtonState } from "./enums/button_state";
 
 export class Button {
 
   name : EventActions;
-  color: MatColor = MatColor.primary;
-  icon : Icon = new Icon("bug", MatColor.primary, 24);
+  color: Color = Color.primary;
+  icon : Icon = new Icon("bug", Color.primary, 24);
   label: string = "";
 
-  currentColors: IconColors = new IconColors(MatColor.transparent, MatColor.transparent);
-  initialColors: IconColors = new IconColors(MatColor.transparent, MatColor.transparent);
+  currentColors: IconColors = new IconColors(Color.transparent, Color.transparent);
+  initialColors: IconColors = new IconColors(Color.transparent, Color.transparent);
   disabled     : boolean = false;
 
-  constructor(name: EventActions, bg_color: MatColor, icon_name: string, icon_color: MatColor ) {
+  constructor(name: EventActions, bg_color: Color, icon_name: string, icon_color: Color ) {
     this.name          = name;
-    this.currentColors = new IconColors(MatColor.warn, MatColor.warn);
+    this.currentColors = new IconColors(Color.warn, Color.warn);
 
     this.setColor(bg_color);
     this.setIcon(icon_name, icon_color);
   }
 
-  setColor(color: MatColor) {
+  setColor(color: Color) {
     this.currentColors.background = color;
     return this;
   }
 
-  setIcon(name: string, color: MatColor, size: number = 24) {
+  setIcon(name: string, color: Color, size: number = 24) {
     this.currentColors.text = color;
     this.icon               = new Icon(name, color, size);
     return this;
@@ -38,8 +38,8 @@ export class Button {
       this.initialColors = new IconColors(this.currentColors.background, this.currentColors.text)
     }
 
-    this.currentColors.background = MatColor.transparent;
-    this.currentColors.text       = MatColor.disabled;
+    this.currentColors.background = Color.transparent;
+    this.currentColors.text       = Color.disabled;
     return this;
   }
 
@@ -53,10 +53,10 @@ export class Button {
 
 
 export class IconColors {
-  background: MatColor;
-  text      : MatColor;
+  background: Color;
+  text      : Color;
 
-  constructor(background: MatColor, text: MatColor) {
+  constructor(background: Color, text: Color) {
     this.background = background;
     this.text       = text;
   }
@@ -68,10 +68,10 @@ export class IconColors {
 
 export class Icon {
   name : string   = "bug";
-  color: MatColor = MatColor.warn;
+  color: Color = Color.warn;
   size : number   = 24;
 
-  constructor(name: string, color: MatColor, size: number = 24) {
+  constructor(name: string, color: Color, size: number = 24) {
     this.name  = name;
     this.color = color;
     this.size  = size;
@@ -82,7 +82,7 @@ export class Icon {
     return this;
   }
 
-  setColor(color: MatColor): Icon {
+  setColor(color: Color): Icon {
     this.color = color;
     return this;
   }

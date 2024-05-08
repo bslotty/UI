@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { MatColor } from '../../models/enums/mat_color';
+import { Color } from '../../models/enums/mat_color';
 
 @Component({
   selector: 'app-attention-message',
@@ -9,11 +9,11 @@ import { MatColor } from '../../models/enums/mat_color';
 })
 export class AttentionMessageComponent implements OnInit {
 
-  @Input() textColor: MatColor = MatColor.primary;
-  @Input() bgColor  : MatColor = MatColor.transparent;
+  @Input() textColor: Color = Color.primary;
+  @Input() bgColor  : Color = Color.transparent;
   @Input() message  : string = "MESSAGE NOT SET";
 
-  readonly MatColor = MatColor;
+  readonly Color = Color;
 
   constructor() { }
 

@@ -1,6 +1,6 @@
 import { PresetsService } from '../services/presets.service';
 import { EventActions } from './enums/event_actions';
-import { MatColor } from './enums/mat_color';
+import { Color } from './enums/mat_color';
 import { Button } from './icon_button';
 import { SortDirection } from './sort';
 

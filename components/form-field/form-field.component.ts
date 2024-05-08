@@ -1,6 +1,6 @@
 import { Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { FormInputTypes } from '../../models/enums/form_input_type';
-import { MatColor } from '../../models/enums/mat_color';
+import { Color } from '../../models/enums/mat_color';
 import { FormInputField } from '../../models/form_input_field';
 import { FloatLabelType } from '@angular/material/form-field';
 
@@ -19,7 +19,7 @@ export class FormFieldComponent implements OnInit {
   password_type: string = "password";
   password_icon: string = "eye";
 
-  readonly MatColor = MatColor;
+  readonly Color = Color;
   readonly types    = FormInputTypes;
 
   floatLabel: FloatLabelType = "auto";

@@ -1,4 +1,4 @@
-export enum MatColor {
+export enum Color {
   primary,
   accent,
   warn,
