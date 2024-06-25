@@ -7,10 +7,9 @@ export class FilterOptions {
     search: string = "";
     sort  : Sort = new Sort(0, SortDirection.Desc);
     range : FilterOptionsRange = new FilterOptionsRange();
-    page  : FilterOptionsPaging; 
+    page  : FilterOptionsPaging = new FilterOptionsPaging();
 
     constructor(){
-      this.page = new FilterOptionsPaging();
     }
 
     setPreset(preset: string): FilterOptions {

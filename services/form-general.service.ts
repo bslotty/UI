@@ -9,10 +9,10 @@ import { FormInputField } from "../models/form_input_field";
 })
 export class FormGeneralService {
   public defaultFormControls = {
-    id: [`create_${Math.floor(Math.random() * 100000000)}`, []],
+    id    : [`create_${Math.floor(Math.random() * 100000000)}`, []],
     string: ["", [Validators.required, Validators.maxLength(1024)]],
-    date: [new Date(), [Validators.required]],
-    float: [0, [Validators.required, Validators.maxLength(1024), Validators.pattern("[0-9.]+"), Validators.min(0.001)]],
+    date  : [new Date(), [Validators.required]],
+    float : [0, [Validators.required, Validators.maxLength(1024), Validators.pattern("[0-9.]+"), Validators.min(0.001)]],
   };
   constructor(public builder: FormBuilder) {}
 
@@ -30,7 +30,7 @@ export class FormGeneralService {
       case FormTypes.dateRange:
         return this.builder.group({
           start: ["", []],
-          end: ["", []],
+          end  : ["", []],
         });
 
       case FormTypes.preset:

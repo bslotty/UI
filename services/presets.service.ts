@@ -32,14 +32,14 @@ export class PresetsService {
       refresh: new Button(
         EventActions.refresh,
         MatColor.transparent,
-        'rotate-cw',
+        'restart_alt',
         MatColor.primary
       ),
 
       add: new Button(
         EventActions.add,
         MatColor.transparent,
-        'plus',
+        'add',
         MatColor.accent
       ),
 
@@ -53,7 +53,7 @@ export class PresetsService {
       link: new Button(
         EventActions.link,
         MatColor.transparent,
-        'chevron-right',
+        'chevron_right',
         MatColor.primary
       ),
 
@@ -74,7 +74,7 @@ export class PresetsService {
       date: new Button(
         EventActions.selectDate,
         MatColor.transparent,
-        'calendar',
+        'date_range',
         MatColor.primary
       ),
 

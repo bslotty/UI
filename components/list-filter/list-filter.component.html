@@ -1,33 +1,47 @@
 <div class="f-row j-start mb-2 g-3">
-  <div *ngIf="options.preset">
-    <label class="mat-body-2">{{ options.preset | titleCaseAll }}</label>
-  </div>
-
-  <div *ngIf="options.sort">
-    <div class="f-row">
-      <label class="mat-body-2">{{
-        options.sort.enumList[options.sort.active] | titleCaseAll
-      }}</label>
-      <a (click)="flipSortDirection()">
+  <div *ngIf="options.page.enabled">
+    <div class="f-row j-center g-1">
+      <a
+        (click)="page('prev')"
+        class="mat-elevation-z0"
+        [attr.disabled]="this.options.page.current_page == 1"
+      >
         <app-icon
-          [name]="options.sort.direction == SortDirection.Asc ? 'chevron-up' : 'chevron-down'"
-          [color]="options.sort.direction == SortDirection.Asc ? MatColor.accent : MatColor.warn"
+          name="chevron_left"
+          [color]="MatColor.primary"
+        >
+        </app-icon>
+      </a>
+      <label class="mat-body-2">{{ this.options.page.current_page }} / {{ this.options.page.page_limit }}</label>
+      <a
+        (click)="page('next')"
+        class="mat-elevation-z0"
+        [attr.disabled]="this.options.page.current_page >= this.options.page.page_limit"
+      >
+        <app-icon
+          name="chevron_right"
+          [color]="MatColor.primary"
         >
         </app-icon>
       </a>
     </div>
   </div>
 
-  <div *ngIf="options.search.length > 0">
-    <div class="f-row j-center">
-      <div class="col-auto pe-2">
-        <label class="mat-body-2">{{ options.search | titleCaseAll }}</label>
-      </div>
-      <div class="col-auto">
-        <a (click)="resetSearch()" class="mat-elevation-z0">
-          <app-icon name="x" [color]="MatColor.primary"> </app-icon>
-        </a>
-      </div>
+
+  <div *ngIf="options.preset">
+    <label class="mat-body-2">{{ options.preset | titleCaseAll }}</label>
+  </div>
+
+  <div *ngIf="options.sort">
+    <div class="f-row">
+      <label class="mat-body-2">{{ options.sort.enumList[options.sort.active] | titleCaseAll }}</label>
+      <a (click)="flipSortDirection()">
+        <app-icon
+          [name]="options.sort.direction == SortDirection.Asc ? 'stat_1' : 'stat_minus_1'"
+          [color]="options.sort.direction == SortDirection.Asc ? MatColor.accent : MatColor.warn"
+        >
+        </app-icon>
+      </a>
     </div>
   </div>
 
@@ -36,31 +50,47 @@
       <label class="mat-body-2">{{ options.range.start | date : "Y-MM-d" }}</label>
       <label class="mat-body-2">-</label>
       <label class="mat-body-2">{{ options.range.end | date : "Y-MM-d" }}</label>
-      <a (click)="resetRange()" class="mat-elevation-z0">
-        <app-icon name="x" [color]="MatColor.primary"> </app-icon>
+      <a
+        (click)="resetRange()"
+        class="mat-elevation-z0"
+      >
+        <app-icon
+          name="close"
+          [color]="MatColor.primary"
+        >
+        </app-icon>
       </a>
     </div>
   </div>
 
-  <div *ngIf="options.page.enabled" class="a-end">
-    <div class="f-row j-center g-1">
-      <a
-        (click)="page('prev')"
-        class="mat-elevation-z0"
-        [attr.disabled]="this.options.page.current_page == 1"
-      >
-        <app-icon name="chevron-left" [color]="MatColor.primary"> </app-icon>
-      </a>
-      <label class="mat-body-2"
-        >{{ this.options.page.current_page }} / {{ this.options.page.page_limit }}</label
-      >
-      <a
-        (click)="page('next')"
-        class="mat-elevation-z0"
-        [attr.disabled]="this.options.page.current_page >= this.options.page.page_limit"
-      >
-        <app-icon name="chevron-right" [color]="MatColor.primary"> </app-icon>
-      </a>
+
+  <div *ngIf="options.search.length > 0">
+    <div class="f-row j-center">
+      <div class="col-auto pe-2">
+        <label class="mat-body-2">{{ options.search | titleCaseAll }}</label>
+      </div>
+      <div class="col-auto">
+        <a
+          (click)="resetSearch()"
+          class="mat-elevation-z0"
+        >
+          <app-icon
+            name="close"
+            [color]="MatColor.primary"
+          >
+          </app-icon>
+        </a>
+      </div>
     </div>
+  </div>
+
+  <div>
+    <a (click)="showSearch()">
+      <app-icon
+        name="search"
+        [color]="MatColor.primary"
+      >
+      </app-icon>
+    </a>
   </div>
 </div>

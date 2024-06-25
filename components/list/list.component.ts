@@ -41,6 +41,7 @@ export class ListComponent implements OnInit {
     this.pagination.pageSize
   }
 
+
   ngOnInit(): void {
 
     this.fullColumns = [...this.columns];

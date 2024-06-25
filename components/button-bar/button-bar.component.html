@@ -1,16 +1,12 @@
 <div class="f-row flex-nowrap j-end g-2">
-    <a
-        *ngFor="let button of buttons"
-        mat-mini-fab
-        [class]="button.currentColors.background == MatColor.transparent ? 'mat-elevation-z0' : 'mat-elevation-z1'"
-        [color]="MatColor[ button.currentColors.background ]"
-        (click)="emit(button.name)"
-        [disabled]="button.disabled"
-    >
-        <app-icon
-            [name]="button.icon.name"
-            [size]="button.icon.size"
-            [color]="button.currentColors.text "
-        ></app-icon>
-    </a>
+  <a
+    *ngFor="let button of buttons"
+    mat-mini-fab
+    [class]="button.currentColors.background == MatColor.transparent ? 'mat-elevation-z0' : 'mat-elevation-z1'"
+    [color]="MatColor[button.currentColors.background]"
+    (click)="emit(button.name)"
+    [disabled]="button.disabled"
+  >
+    <app-icon [name]="button.icon.name" [size]="button.icon.size" [color]="button.currentColors.text"></app-icon>
+  </a>
 </div>

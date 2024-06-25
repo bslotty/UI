@@ -52,4 +52,8 @@ export class ListFilterComponent implements OnInit {
 
     this.emit();
   }
+
+  showSearch() {
+    console.log("search");
+  }
 }
