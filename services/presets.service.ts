@@ -31,28 +31,16 @@ export class PresetsService {
 
       refresh: new Button(
         EventActions.refresh,
-<<<<<<< HEAD
-        MatColor.transparent,
-        'restart_alt',
-        MatColor.primary
-=======
         Color.transparent,
-        'rotate-cw',
+        'restart_alt',
         Color.primary
->>>>>>> ac152ce7f306e29ddb1bc7166d3a21ab76f6fcdd
       ),
 
       add: new Button(
         EventActions.add,
-<<<<<<< HEAD
-        MatColor.transparent,
-        'add',
-        MatColor.accent
-=======
         Color.transparent,
-        'plus',
+        'add',
         Color.accent
->>>>>>> ac152ce7f306e29ddb1bc7166d3a21ab76f6fcdd
       ),
 
       delete: new Button(
@@ -64,15 +52,9 @@ export class PresetsService {
 
       link: new Button(
         EventActions.link,
-<<<<<<< HEAD
-        MatColor.transparent,
-        'chevron_right',
-        MatColor.primary
-=======
         Color.transparent,
-        'chevron-right',
+        'chevron_right',
         Color.primary
->>>>>>> ac152ce7f306e29ddb1bc7166d3a21ab76f6fcdd
       ),
 
       complete: new Button(
@@ -91,15 +73,9 @@ export class PresetsService {
 
       date: new Button(
         EventActions.selectDate,
-<<<<<<< HEAD
-        MatColor.transparent,
-        'date_range',
-        MatColor.primary
-=======
         Color.transparent,
-        'calendar',
+        'date_range',
         Color.primary
->>>>>>> ac152ce7f306e29ddb1bc7166d3a21ab76f6fcdd
       ),
 
       search: new Button(
