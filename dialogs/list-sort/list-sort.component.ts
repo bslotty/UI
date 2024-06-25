@@ -2,7 +2,7 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { ButtonEvent } from '../../models/button_event';
 import { EventActions } from '../../models/enums/event_actions';
-import { MatColor } from '../../models/enums/mat_color';
+import { Color } from '../../models/enums/mat_color';
 import { Button } from '../../models/icon_button';
 import { Sort, SortDirection } from '../../models/sort';
 import { PresetsService } from '../../services/presets.service';

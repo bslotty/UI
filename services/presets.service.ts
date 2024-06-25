@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { EventActions } from '../models/enums/event_actions';
-import { MatColor } from '../models/enums/mat_color';
+import { Color } from '../models/enums/mat_color';
 import { Button } from '../models/icon_button';
 
 @Injectable({
@@ -17,143 +17,167 @@ export class PresetsService {
     this.buttons = {
       save: new Button(
         EventActions.save,
-        MatColor.accent,
+        Color.accent,
         'check',
-        MatColor.light
+        Color.light
       ),
 
       filter: new Button(
         EventActions.filter,
-        MatColor.transparent,
+        Color.transparent,
         'filter',
-        MatColor.primary
+        Color.primary
       ),
 
       refresh: new Button(
         EventActions.refresh,
+<<<<<<< HEAD
         MatColor.transparent,
         'restart_alt',
         MatColor.primary
+=======
+        Color.transparent,
+        'rotate-cw',
+        Color.primary
+>>>>>>> ac152ce7f306e29ddb1bc7166d3a21ab76f6fcdd
       ),
 
       add: new Button(
         EventActions.add,
+<<<<<<< HEAD
         MatColor.transparent,
         'add',
         MatColor.accent
+=======
+        Color.transparent,
+        'plus',
+        Color.accent
+>>>>>>> ac152ce7f306e29ddb1bc7166d3a21ab76f6fcdd
       ),
 
       delete: new Button(
         EventActions.delete,
-        MatColor.transparent,
+        Color.transparent,
         'trash',
-        MatColor.warn
+        Color.warn
       ),
 
       link: new Button(
         EventActions.link,
+<<<<<<< HEAD
         MatColor.transparent,
         'chevron_right',
         MatColor.primary
+=======
+        Color.transparent,
+        'chevron-right',
+        Color.primary
+>>>>>>> ac152ce7f306e29ddb1bc7166d3a21ab76f6fcdd
       ),
 
       complete: new Button(
         EventActions.complete,
-        MatColor.accent,
+        Color.accent,
         'check',
-        MatColor.light
+        Color.light
       ),
 
       close: new Button(
         EventActions.close,
-        MatColor.transparent,
+        Color.transparent,
         'x',
-        MatColor.primary
+        Color.primary
       ),
 
       date: new Button(
         EventActions.selectDate,
+<<<<<<< HEAD
         MatColor.transparent,
         'date_range',
         MatColor.primary
+=======
+        Color.transparent,
+        'calendar',
+        Color.primary
+>>>>>>> ac152ce7f306e29ddb1bc7166d3a21ab76f6fcdd
       ),
 
       search: new Button(
         EventActions.search,
-        MatColor.transparent,
+        Color.transparent,
         'search',
-        MatColor.primary
+        Color.primary
       ),
 
       // truncate: new Button(EventActions.truncate)
-      //   .setColor(MatColor.warn)
-      //   .setIcon("minus-circle", MatColor.light),
+      //   .setColor(Color.warn)
+      //   .setIcon("minus-circle", Color.light),
 
       // heir: new Button(EventActions.heir)
-      //   .setColor(MatColor.transparent)
-      //   .setIcon("heir", MatColor.primary),
+      //   .setColor(Color.transparent)
+      //   .setIcon("heir", Color.primary),
 
       square_checked: new Button(
         EventActions.checkbox,
-        MatColor.transparent,
+        Color.transparent,
         'check-square',
-        MatColor.primary
+        Color.primary
       ),
 
       square: new Button(
         EventActions.checkbox,
-        MatColor.transparent,
+        Color.transparent,
         'square',
-        MatColor.primary
+        Color.primary
       ),
 
       edit: new Button(
         EventActions.edit,
-        MatColor.transparent,
+        Color.transparent,
         'edit-2',
-        MatColor.primary
+        Color.primary
       ),
 
       sort: new Button(
         EventActions.sort,
-        MatColor.transparent,
+        Color.transparent,
         'shuffle',
-        MatColor.primary
+        Color.primary
       ),
 
       sort_asc: new Button(
         EventActions.sortAsc,
-        MatColor.transparent,
+        Color.transparent,
         'chevron-up',
-        MatColor.primary
+        Color.primary
       ),
 
       sort_asc_active: new Button(
         EventActions.sortAsc,
-        MatColor.accent,
+        Color.accent,
         'chevron-up',
-        MatColor.light
+        Color.light
       ),
 
       sort_desc: new Button(
         EventActions.sortDesc,
-        MatColor.transparent,
+        Color.transparent,
         'chevron-down',
-        MatColor.primary
+        Color.primary
       ),
 
       sort_desc_active: new Button(
         EventActions.sortDesc,
-        MatColor.warn,
+        Color.warn,
         'chevron-down',
-        MatColor.light
+        Color.light
       ),
 
       login: new Button(
         EventActions.complete,
-        MatColor.transparent,
+        Color.transparent,
         'log-in',
-        MatColor.accent
+        Color.accent
       ),
     };
   }

@@ -2,7 +2,7 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { UntypedFormGroup } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { ButtonEvent } from '../../models/button_event';
-import { MatColor } from '../../models/enums/mat_color';
+import { Color } from '../../models/enums/mat_color';
 import { FormInputField } from '../../models/form_input_field';
 import { Button } from '../../models/icon_button';
 import { FormGeneralService } from '../../services/form-general.service';
@@ -25,7 +25,7 @@ export class SelectComponent implements OnInit {
   searchForm   : UntypedFormGroup = this._gForm.initForm(FormTypes.search);
   searchFormMap: FormInputField[] = this._gForm.initControls(this.searchForm, FormTypes.search);
 
-  readonly MatColor = MatColor;
+  readonly Color = Color;
 
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,

@@ -6,12 +6,12 @@
             <app-icon
                 *ngIf="sort.direction == SortDirection.Asc"
                 name='chevron-up'
-                [color]="MatColor.accent"
+                [color]="Color.accent"
             ></app-icon>
             <app-icon
                 *ngIf="sort.direction == SortDirection.Desc"
                 name='chevron-down'
-                [color]="MatColor.warn"
+                [color]="Color.warn"
             ></app-icon>
         </div>
 
@@ -23,6 +23,6 @@
     <app-icon
     *ngIf="sort.direction == SortDirection.None"
     name='minus'
-    [color]="MatColor.disabled"
+    [color]="Color.disabled"
 ></app-icon>
 </ng-template>

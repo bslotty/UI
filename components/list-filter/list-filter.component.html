@@ -7,6 +7,7 @@
         [attr.disabled]="this.options.page.current_page == 1"
       >
         <app-icon
+<<<<<<< HEAD
           name="chevron_left"
           [color]="MatColor.primary"
         >
@@ -21,12 +22,17 @@
         <app-icon
           name="chevron_right"
           [color]="MatColor.primary"
+=======
+          [name]="options.sort.direction == SortDirection.Asc ? 'chevron-up' : 'chevron-down'"
+          [color]="options.sort.direction == SortDirection.Asc ? Color.accent : Color.warn"
+>>>>>>> ac152ce7f306e29ddb1bc7166d3a21ab76f6fcdd
         >
         </app-icon>
       </a>
     </div>
   </div>
 
+<<<<<<< HEAD
 
   <div *ngIf="options.preset">
     <label class="mat-body-2">{{ options.preset | titleCaseAll }}</label>
@@ -42,6 +48,18 @@
         >
         </app-icon>
       </a>
+=======
+  <div *ngIf="options.search.length > 0">
+    <div class="f-row j-center">
+      <div class="col-auto pe-2">
+        <label class="mat-body-2">{{ options.search | titleCaseAll }}</label>
+      </div>
+      <div class="col-auto">
+        <a (click)="resetSearch()" class="mat-elevation-z0">
+          <app-icon name="x" [color]="Color.primary"> </app-icon>
+        </a>
+      </div>
+>>>>>>> ac152ce7f306e29ddb1bc7166d3a21ab76f6fcdd
     </div>
   </div>
 
@@ -50,6 +68,7 @@
       <label class="mat-body-2">{{ options.range.start | date : "Y-MM-d" }}</label>
       <label class="mat-body-2">-</label>
       <label class="mat-body-2">{{ options.range.end | date : "Y-MM-d" }}</label>
+<<<<<<< HEAD
       <a
         (click)="resetRange()"
         class="mat-elevation-z0"
@@ -59,10 +78,15 @@
           [color]="MatColor.primary"
         >
         </app-icon>
+=======
+      <a (click)="resetRange()" class="mat-elevation-z0">
+        <app-icon name="x" [color]="Color.primary"> </app-icon>
+>>>>>>> ac152ce7f306e29ddb1bc7166d3a21ab76f6fcdd
       </a>
     </div>
   </div>
 
+<<<<<<< HEAD
 
   <div *ngIf="options.search.length > 0">
     <div class="f-row j-center">
@@ -81,6 +105,27 @@
           </app-icon>
         </a>
       </div>
+=======
+  <div *ngIf="options.page.enabled" class="a-end">
+    <div class="f-row j-center g-1">
+      <a
+        (click)="page('prev')"
+        class="mat-elevation-z0"
+        [attr.disabled]="this.options.page.current_page == 1"
+      >
+        <app-icon name="chevron-left" [color]="Color.primary"> </app-icon>
+      </a>
+      <label class="mat-body-2"
+        >{{ this.options.page.current_page }} / {{ this.options.page.page_limit }}</label
+      >
+      <a
+        (click)="page('next')"
+        class="mat-elevation-z0"
+        [attr.disabled]="this.options.page.current_page >= this.options.page.page_limit"
+      >
+        <app-icon name="chevron-right" [color]="Color.primary"> </app-icon>
+      </a>
+>>>>>>> ac152ce7f306e29ddb1bc7166d3a21ab76f6fcdd
     </div>
   </div>
 

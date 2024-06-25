@@ -3,7 +3,7 @@ import { UntypedFormGroup } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { FormInputField } from '../../models/form_input_field';
 import { Button } from '../../models/icon_button';
-import { MatColor } from '../../models/enums/mat_color';
+import { Color } from '../../models/enums/mat_color';
 import { FormGeneralService } from '../../services/form-general.service';
 import { ButtonEvent } from '../../models/button_event';
 import { EventActions } from '../../models/enums/event_actions';
@@ -74,7 +74,7 @@ export class FormComponent implements OnInit {
     if (this.formUtil.isValid(this.form)) {
       this._diagref.close(this.form.value);
     } else {
-      this._ping.send(MatColor.warn, 'Form invalid');
+      this._ping.send(Color.warn, 'Form invalid');
       this.form.markAllAsTouched();
     }
   }

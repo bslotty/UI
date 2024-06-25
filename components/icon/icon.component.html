@@ -1,5 +1,24 @@
+<<<<<<< HEAD
 <!-- <img src="./assets/icons/{{ name }}.svg"
     class="mat-{{ MatColor[color] }}"
     [width]="size"
     [height]="size" /> -->
 <span class="material-symbols-outlined mat-{{ MatColor[color] }}">{{ name }}</span>
+=======
+@if(svg) {
+<img
+  src="./assets/icons/{{ name }}.svg"
+  class="mat-{{ Color[color] }}"
+  [width]="size"
+  [height]="size"
+/>
+
+} @else {
+<span
+  class="material-symbols-outlined {{ Color[color] }}"
+  [attr.class.width]="size"
+  [attr.class.height]="size"
+  >{{ name }}</span
+>
+}
+>>>>>>> ac152ce7f306e29ddb1bc7166d3a21ab76f6fcdd

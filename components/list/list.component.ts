@@ -4,7 +4,7 @@ import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { isObservable, Observable } from 'rxjs';
 import { Button } from '../../models/icon_button';
-import { MatColor } from '../../models/enums/mat_color';
+import { Color } from '../../models/enums/mat_color';
 import { PhaseType } from '../../models/section_phase';
 import { ButtonEvent } from '../../models/button_event';
 import { ErrorService } from '../../services/error.service';
@@ -29,7 +29,7 @@ export class ListComponent implements OnInit {
 
   hasData: boolean = false;
 
-  readonly MatColor = MatColor;
+  readonly Color = Color;
 
   constructor(
     private _error: ErrorService,

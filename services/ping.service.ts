@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { MatSnackBar, MatSnackBarConfig } from '@angular/material/snack-bar';
-import { MatColor } from '../models/enums/mat_color';
+import { Color } from '../models/enums/mat_color';
 
 @Injectable({
   providedIn: 'root'
@@ -18,8 +18,8 @@ export class PingService {
     this.config.duration = 3333;
   }
 
-  send( color: MatColor, message: string) {
-    this.config.panelClass = ["mat-" + MatColor[color] ];
+  send( color: Color, message: string) {
+    this.config.panelClass = ["mat-" + Color[color] ];
     this.ping.open(message, "", this.config);
   }
 

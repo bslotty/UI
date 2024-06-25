@@ -38,7 +38,7 @@ export class UtilitiesService {
 }
 
 
-// export enum MatColor {
+// export enum Color {
 //   "primary",
 //   "accent",
 //   "warn",
