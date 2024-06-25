@@ -2,7 +2,7 @@ import { Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild }
 import { FormInputTypes } from '../../models/enums/form_input_type';
 import { Color } from '../../models/enums/mat_color';
 import { FormInputField } from '../../models/form_input_field';
-import { FloatLabelType } from '@angular/material/form-field';
+import { LegacyFloatLabelType as FloatLabelType } from '@angular/material/legacy-form-field';
 
 @Component({
   selector: 'app-form-field',

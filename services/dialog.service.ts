@@ -1,6 +1,6 @@
 import { Component, Injectable } from '@angular/core';
 import { UntypedFormGroup } from '@angular/forms';
-import { MatDialog,  MatDialogConfig, MatDialogContainer } from '@angular/material/dialog';
+import { MatLegacyDialog as MatDialog,  MatLegacyDialogConfig as MatDialogConfig, MatLegacyDialogContainer as MatDialogContainer } from '@angular/material/legacy-dialog';
 import { filter, Observable, of } from 'rxjs';
 import { ConfirmComponent } from '../dialogs/confirm/confirm.component';
 import { FormComponent } from '../dialogs/form/form.component';

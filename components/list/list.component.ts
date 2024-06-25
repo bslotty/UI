@@ -1,7 +1,7 @@
 import { ChangeDetectorRef, Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
-import { MatPaginator, MatPaginatorIntl } from '@angular/material/paginator';
+import { MatLegacyPaginator as MatPaginator, MatLegacyPaginatorIntl as MatPaginatorIntl } from '@angular/material/legacy-paginator';
 import { MatSort } from '@angular/material/sort';
-import { MatTableDataSource } from '@angular/material/table';
+import { MatLegacyTableDataSource as MatTableDataSource } from '@angular/material/legacy-table';
 import { isObservable, Observable } from 'rxjs';
 import { Button } from '../../models/icon_button';
 import { Color } from '../../models/enums/mat_color';
