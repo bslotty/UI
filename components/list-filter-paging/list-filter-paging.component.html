@@ -1,0 +1,50 @@
+  <div class="f-row j-center g-1 nowrap">
+    <a [matMenuTriggerFor]="pageSizeMenu"
+      ><label>Page Size: {{ this.paging.length }}</label></a
+    >
+    <mat-menu #pageSizeMenu="matMenu">
+      <button
+        mat-menu-item
+        (click)="setPageLimit(5)"
+      >
+        5
+      </button>
+      <button
+        mat-menu-item
+        (click)="setPageLimit(25)"
+      >
+        25
+      </button>
+      <button
+        mat-menu-item
+        (click)="setPageLimit(50)"
+      >
+        50
+      </button>
+    </mat-menu>
+  </div>
+  <div class="f-row j-center g-1">
+    <a
+      (click)="page('prev')"
+      class="mat-elevation-z0"
+      [attr.disabled]="paging.current_page == 1"
+    >
+      <app-icon
+        name="chevron_left"
+        [color]="Color.primary"
+      >
+      </app-icon>
+    </a>
+    <label class="mat-body-2">{{ this.paging.current_page }} / {{ this.paging.page_limit }} </label>
+    <a
+      (click)="page('next')"
+      class="mat-elevation-z0"
+      [attr.disabled]="this.paging.current_page >= this.paging.page_limit"
+    >
+      <app-icon
+        name="chevron_right"
+        [color]="Color.primary"
+      >
+      </app-icon>
+    </a>
+  </div>

@@ -1,10 +1,10 @@
 import { Component, Injectable } from '@angular/core';
 import { UntypedFormGroup } from '@angular/forms';
-import { MatLegacyDialog as MatDialog,  MatLegacyDialogConfig as MatDialogConfig, MatLegacyDialogContainer as MatDialogContainer } from '@angular/material/legacy-dialog';
 import { filter, Observable, of } from 'rxjs';
 import { ConfirmComponent } from '../dialogs/confirm/confirm.component';
 import { FormComponent } from '../dialogs/form/form.component';
 import { FormInputField } from '../models/form_input_field';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 
 @Injectable({
   providedIn: 'root'
@@ -12,8 +12,8 @@ import { FormInputField } from '../models/form_input_field';
 export class DialogService {
 
   settings: MatDialogConfig = {
-    minWidth: "65%",
-    // width: "550px",
+    minWidth: "300px",
+    maxWidth: "100%",
     data: {},
     disableClose: true,
   };
@@ -45,13 +45,4 @@ export class DialogService {
   form(): Observable<any> {
     return this.open(FormComponent);
   }
-
-
-
-  
-  //  Crud Presets
-  presetCreate(){
-    
-  }
-
 }

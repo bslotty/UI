@@ -1,0 +1,15 @@
+<div class="f-row j-center g-1">
+  <label class="mat-body-2">{{ range.start | date : "Y-MM-d" }}</label>
+  <label class="mat-body-2">-</label>
+  <label class="mat-body-2">{{ range.end | date : "Y-MM-d" }}</label>
+  <a
+    (click)="resetRange()"
+    class="mat-elevation-z0"
+  >
+    <app-icon
+      name="close"
+      [color]="Color.primary"
+    >
+    </app-icon>
+  </a>
+</div>

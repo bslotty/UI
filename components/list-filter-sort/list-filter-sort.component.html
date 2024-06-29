@@ -1,0 +1,23 @@
+<div class="f-row">
+  <a [matMenuTriggerFor]="sortOptionsMenu">
+    <label class="mat-body-2">{{ sort.enumList[sort.active] | titleCaseAll }}</label>
+  </a>
+  <mat-menu #sortOptionsMenu="matMenu">
+    @for( field of fieldNames; track field ){
+    <button
+      mat-menu-item
+      (click)="setSortField(field)"
+    >
+      {{ field | titleCaseAll }}
+    </button>
+    }
+  </mat-menu>
+
+  <a (click)="flipSortDirection()">
+    <app-icon
+      [name]="sort.direction == SortDirection.Asc ? 'stat_1' : 'stat_minus_1'"
+      [color]="sort.direction == SortDirection.Asc ? Color.accent : Color.warn"
+    >
+    </app-icon>
+  </a>
+</div>

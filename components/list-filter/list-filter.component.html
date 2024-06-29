@@ -1,48 +1,20 @@
 <div class="f-row j-start mb-2 g-3">
-  <div *ngIf="options.page.enabled">
-    <div class="f-row j-center g-1">
-      <a
-        (click)="page('prev')"
-        class="mat-elevation-z0"
-        [attr.disabled]="this.options.page.current_page == 1"
-      >
-        <app-icon
-          name="chevron_left"
-          [color]="Color.primary"
-        >
-        </app-icon>
-      </a>
-      <label class="mat-body-2">{{ this.options.page.current_page }} / {{ this.options.page.page_limit }}</label>
-      <a
-        (click)="page('next')"
-        class="mat-elevation-z0"
-        [attr.disabled]="this.options.page.current_page >= this.options.page.page_limit"
-      >
-        <app-icon
-          name="chevron_right"
-          [color]="Color.primary"
-        >
-        </app-icon>
-      </a>
-    </div>
-  </div>
-
-  <div *ngIf="options.preset">
+  @if (options.page.enabled) {
+  <app-list-filter-paging
+    [paging]="options.page"
+    (event)="emit()"
+  ></app-list-filter-paging>
+  } 
+  
+  @if (options.preset){
+  <div>
     <label class="mat-body-2">{{ options.preset | titleCaseAll }}</label>
   </div>
+  }
 
-  <div *ngIf="options.sort">
-    <div class="f-row">
-      <label class="mat-body-2">{{ options.sort.enumList[options.sort.active] | titleCaseAll }}</label>
-      <a (click)="flipSortDirection()">
-        <app-icon
-          [name]="options.sort.direction == SortDirection.Asc ? 'stat_1' : 'stat_minus_1'"
-          [color]="options.sort.direction == SortDirection.Asc ? Color.accent : Color.warn"
-        >
-        </app-icon>
-      </a>
-    </div>
-  </div>
+  @if (options.sort){
+    <app-list-filter-sort [sort]="options.sort" (event)="emit()"></app-list-filter-sort>
+  }
 
   <div *ngIf="options.range">
     <div class="f-row j-center g-1">

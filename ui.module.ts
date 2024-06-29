@@ -19,6 +19,9 @@ import { ListSortComponent } from './dialogs/list-sort/list-sort.component';
 import { ListFilterComponent } from './components/list-filter/list-filter.component';
 import { SelectDateRangeComponent } from '../UI/dialogs/select-date-range/select-date-range.component';
 import { SortIconComponent } from './components/sort-icon/sort-icon.component';
+import { ListFilterPagingComponent } from './components/list-filter-paging/list-filter-paging.component';
+import { ListFilterSortComponent } from './components/list-filter-sort/list-filter-sort.component';
+import { ListFilterDateRangeComponent } from './components/list-filter-date-range/list-filter-date-range.component';
 
 @NgModule({
     imports: [
@@ -43,6 +46,9 @@ import { SortIconComponent } from './components/sort-icon/sort-icon.component';
         AttentionMessageComponent,
         ListSortComponent,
         ListFilterComponent,
+        ListFilterPagingComponent,
+        ListFilterSortComponent,
+        ListFilterDateRangeComponent,
         SelectDateRangeComponent,
         SortIconComponent,
     ],

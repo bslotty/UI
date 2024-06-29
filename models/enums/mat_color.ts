@@ -4,5 +4,6 @@ export enum Color {
   warn,
   transparent,
   light,
+  dark,
   disabled
 }
