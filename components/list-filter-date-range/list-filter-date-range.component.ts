@@ -11,7 +11,7 @@ export class ListFilterDateRangeComponent {
 
   readonly Color = Color;
   
-  @Input() range: FilterOptionsRange;
+  @Input() range: FilterOptionsRange = new FilterOptionsRange();
   @Output() event: EventEmitter<FilterOptionsRange> = new EventEmitter();
 
   emit(){

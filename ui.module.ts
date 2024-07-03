@@ -22,6 +22,8 @@ import { SortIconComponent } from './components/sort-icon/sort-icon.component';
 import { ListFilterPagingComponent } from './components/list-filter-paging/list-filter-paging.component';
 import { ListFilterSortComponent } from './components/list-filter-sort/list-filter-sort.component';
 import { ListFilterDateRangeComponent } from './components/list-filter-date-range/list-filter-date-range.component';
+import { ToggleComponent } from './components/toggle/toggle.component';
+import { TextComponent } from './components/text/text.component';
 
 @NgModule({
     imports: [
@@ -29,7 +31,6 @@ import { ListFilterDateRangeComponent } from './components/list-filter-date-rang
         RouterModule,
     ],
     declarations: [
-        //  Dialogs
         ConfirmComponent,
         FormComponent,
         ProgressComponent,
@@ -51,10 +52,11 @@ import { ListFilterDateRangeComponent } from './components/list-filter-date-rang
         ListFilterDateRangeComponent,
         SelectDateRangeComponent,
         SortIconComponent,
+        ToggleComponent,
+        TextComponent
     ],
     exports: [
         MaterialModule,
-        //  Dialogs
         ConfirmComponent,
         FormComponent,
         ProgressComponent,
@@ -72,6 +74,7 @@ import { ListFilterDateRangeComponent } from './components/list-filter-date-rang
         ListSortComponent,
         ListFilterComponent,
         SortIconComponent,
+        TextComponent,
     ],
     providers: []
 })

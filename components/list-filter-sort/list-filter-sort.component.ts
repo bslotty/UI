@@ -11,7 +11,7 @@ export class ListFilterSortComponent implements OnInit {
   readonly Color = Color;
   readonly SortDirection = SortDirection;
 
-  @Input() sort: Sort;
+  @Input() sort: Sort = new Sort(0, SortDirection.Asc);
   @Output() event: EventEmitter<Sort> = new EventEmitter();
 
   public fieldNames:string[] = [];

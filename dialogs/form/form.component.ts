@@ -1,6 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { UntypedFormGroup } from '@angular/forms';
-import { MatLegacyDialogRef as MatDialogRef, MAT_LEGACY_DIALOG_DATA as MAT_DIALOG_DATA } from '@angular/material/legacy-dialog';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { FormInputField } from '../../models/form_input_field';
 import { Button } from '../../models/icon_button';
 import { Color } from '../../models/enums/mat_color';

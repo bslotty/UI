@@ -1,6 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { UntypedFormGroup } from '@angular/forms';
-import { MatLegacyDialogRef as MatDialogRef, MAT_LEGACY_DIALOG_DATA as MAT_DIALOG_DATA } from '@angular/material/legacy-dialog';
+import {MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { ButtonEvent } from '../../models/button_event';
 import { Color } from '../../models/enums/mat_color';
 import { FormInputField } from '../../models/form_input_field';
@@ -8,7 +8,6 @@ import { Button } from '../../models/icon_button';
 import { FormGeneralService } from '../../services/form-general.service';
 import { PresetsService } from '../../services/presets.service';
 import { FormTypes } from '../../models/enums/form_types';
-import { UIModule } from '../../ui.module';
 
 @Component({
   selector: 'app-select',

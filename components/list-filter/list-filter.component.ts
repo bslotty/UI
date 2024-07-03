@@ -18,7 +18,7 @@ export class ListFilterComponent implements OnInit {
   @Input()
   options: FilterOptions;
 
-  fieldNames: string[];
+  fieldNames: string[] = [];
 
   constructor() {
     this.options = new FilterOptions();
