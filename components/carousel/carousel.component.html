@@ -1,5 +1,26 @@
+<div class="f-row j-center a-center mb-3">
+  <app-img [image]="imgs[activeIndex]"></app-img>
+</div>
+
+
 <div class="f-row j-center">
-    <button></button>
-    <div class="carousel"></div>
-    <button></button>
+  <button (click)="prev()" [disabled]="activeIndex == 0">
+    <app-icon name="chevron_left"></app-icon>
+  </button>
+  <div class="carousel"></div>
+  <button (click)="next()" [disabled]="activeIndex >= imgs.length -1">
+    <app-icon
+      name="chevron_right"
+       ></app-icon>
+  </button>
+</div>
+
+<div class="indicator f-row">
+  @for (img of imgs; track $index) { 
+    @if (activeIndex == $index) {
+    <app-icon name="radio_button_checked"></app-icon>
+    } @else {
+    <app-icon name="radio_button_unchecked"></app-icon>
+    } 
+  }
 </div>

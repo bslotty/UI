@@ -24,11 +24,15 @@ import { ListFilterSortComponent } from './components/list-filter-sort/list-filt
 import { ListFilterDateRangeComponent } from './components/list-filter-date-range/list-filter-date-range.component';
 import { ToggleComponent } from './components/toggle/toggle.component';
 import { TextComponent } from './components/text/text.component';
+import { ImgComponent } from './components/img/img.component';
+import { NgOptimizedImage } from '@angular/common';
+import { CarouselComponent } from './components/carousel/carousel.component';
 
 @NgModule({
     imports: [
         MaterialModule,
         RouterModule,
+        NgOptimizedImage,
     ],
     declarations: [
         ConfirmComponent,
@@ -53,7 +57,9 @@ import { TextComponent } from './components/text/text.component';
         SelectDateRangeComponent,
         SortIconComponent,
         ToggleComponent,
-        TextComponent
+        TextComponent,
+        ImgComponent,
+        CarouselComponent,
     ],
     exports: [
         MaterialModule,
@@ -75,6 +81,8 @@ import { TextComponent } from './components/text/text.component';
         ListFilterComponent,
         SortIconComponent,
         TextComponent,
+        ImgComponent,
+        CarouselComponent
     ],
     providers: []
 })

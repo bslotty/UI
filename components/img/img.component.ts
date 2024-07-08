@@ -1,12 +1,16 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-img',
-  standalone: true,
-  imports: [],
   templateUrl: './img.component.html',
   styleUrl: './img.component.scss'
 })
 export class ImgComponent {
 
+  @Input() image: string  = ""// base64
+
+
+  constructor() {
+    // console.log("image: ", this.image);
+  }
 }
