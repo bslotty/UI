@@ -1,4 +1,4 @@
-<div class="f-row j-start mb-2 g-3">
+<div class="f-row j-start mb-2 g-5">
   @if (options.page.enabled) {
   <app-list-filter-paging
     [paging]="options.page"
@@ -10,19 +10,39 @@
   <div>
     <label class="mat-body-2">{{ options.preset | titleCaseAll }}</label>
   </div>
-  }
-
+  } 
+  
   @if (options.sort){
-    <app-list-filter-sort [sort]="options.sort" (event)="emit()"></app-list-filter-sort>
-  }
-
-  <div *ngIf="options.range">
-    <div class="f-row j-center g-1">
-      <label class="mat-body-2">{{ options.range.start | date : "Y-MM-d" }}</label>
-      <label class="mat-body-2">-</label>
-      <label class="mat-body-2">{{ options.range.end | date : "Y-MM-d" }}</label>
+  <app-list-filter-sort
+    [sort]="options.sort"
+    (event)="emit()"
+  ></app-list-filter-sort>
+  } 
+  
+  @if (options.range?.enabled) {
+  <div class="f-row j-center g-1">
+    <label class="mat-body-2">{{ options.range.start | date : "Y-MM-dd" }}</label>
+    <label class="mat-body-2">-</label>
+    <label class="mat-body-2">{{ options.range.end | date : "Y-MM-dd" }}</label>
+    <a
+      (click)="resetRange()"
+      class="mat-elevation-z0"
+    >
+      <app-icon
+        name="close"
+        [color]="Color.primary"
+      >
+      </app-icon>
+    </a>
+  </div>
+  } 
+  
+  @if (options.search.length > 0) {
+  <div class="f-row j-center">
+    <div class="col-auto pe-2"></div>
+    <div class="col-auto">
       <a
-        (click)="resetRange()"
+        (click)="resetSearch()"
         class="mat-elevation-z0"
       >
         <app-icon
@@ -33,22 +53,5 @@
       </a>
     </div>
   </div>
-
-  <div *ngIf="options.search.length > 0">
-    <div class="f-row j-center">
-      <div class="col-auto pe-2"></div>
-      <div class="col-auto">
-        <a
-          (click)="resetSearch()"
-          class="mat-elevation-z0"
-        >
-          <app-icon
-            name="close"
-            [color]="Color.primary"
-          >
-          </app-icon>
-        </a>
-      </div>
-    </div>
-  </div>
+  }
 </div>

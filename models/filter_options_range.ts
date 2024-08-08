@@ -1,10 +1,21 @@
 export class FilterOptionsRange {
     start: Date;
     end  : Date;
+    enabled: boolean = false;
     
     constructor(start: Date = new Date(), end: Date = new Date()) {
         this.start = start;
         this.end = end;
+        return this;
+    }
+
+    enable() {
+        this.enabled = true;
+        return this;
+    }
+
+    disable() {
+        this.enabled = false;
         return this;
     }
 

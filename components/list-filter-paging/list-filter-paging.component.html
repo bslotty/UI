@@ -1,6 +1,9 @@
-  <div class="f-row j-center g-1 nowrap">
+<div class="f-row j-center g-1 nowrap">
+  <div>
     <a [matMenuTriggerFor]="pageSizeMenu"
-      ><label>Page Size: {{ this.paging.length }}</label></a
+      ><label class="mat-body-2"
+        >Page Size: <b>{{ this.paging.length }}</b></label
+      ></a
     >
     <mat-menu #pageSizeMenu="matMenu">
       <button
@@ -48,3 +51,4 @@
       </app-icon>
     </a>
   </div>
+</div>
