@@ -11,7 +11,7 @@ export class ListFilterPagingComponent {
 
   readonly Color = Color;
   
-  @Input() paging: FilterOptionsPaging;
+  @Input() paging: FilterOptionsPaging = new FilterOptionsPaging();
   @Output() event: EventEmitter<FilterOptionsPaging> = new EventEmitter();
 
 

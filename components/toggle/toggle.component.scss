@@ -1,0 +1,9 @@
+.toggle {
+    &.active {
+        color: var(--color-accent);
+    }
+
+    &.inactive {
+        color: var(--text-dark);
+    }
+}

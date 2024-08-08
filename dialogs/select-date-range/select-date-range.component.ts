@@ -1,6 +1,6 @@
 import { Component} from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { MatLegacyDialogRef as MatDialogRef } from '@angular/material/legacy-dialog';
+import { MatDialogRef } from '@angular/material/dialog';
 import { ButtonEvent } from '../../models/button_event';
 import { EventActions } from '../../models/enums/event_actions';
 import { FilterOptionsRange } from '../../models/filter_options_range';
