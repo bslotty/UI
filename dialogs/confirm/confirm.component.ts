@@ -1,5 +1,8 @@
-import { Component, Inject, OnInit } from '@angular/core';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { Component, Inject, OnInit, inject } from '@angular/core';
+import {
+  MAT_DIALOG_DATA,
+  MatDialogRef,
+} from '@angular/material/dialog';
 import { Button } from '../../models/icon_button';
 import { PresetsService } from '../../services/presets.service';
 import { EventActions } from '../../models/enums/event_actions';
@@ -8,10 +11,11 @@ import { ButtonEvent } from '../../models/button_event';
 @Component({
   selector: 'app-confirm',
   templateUrl: './confirm.component.html',
-  styles: [
-  ]
+  styles: [  ]
 })
 export class ConfirmComponent implements OnInit {
+  readonly dialogRef = inject(MatDialogRef<ConfirmComponent>);
+  readonly data = inject<any>(MAT_DIALOG_DATA);
 
   title: string = "NOT SET";
   message: string = "NOT SET";
@@ -22,8 +26,8 @@ export class ConfirmComponent implements OnInit {
   ];
 
   constructor(
-    private _diagref: MatDialogRef<ConfirmComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: any,
+    // private _diagref: MatDialogRef<ConfirmComponent>,
+    // @Inject(MAT_DIALOG_DATA) public data: any,
     private _presets: PresetsService,
   ) { }
 
@@ -35,11 +39,11 @@ export class ConfirmComponent implements OnInit {
   header_event(event: ButtonEvent) {
     switch(event.action){
       case EventActions.complete:
-        this._diagref.close(true);
+        this.dialogRef.close(true);
         break;
 
       default:
-        this._diagref.close();
+        this.dialogRef.close();
         break;
     }
   }
