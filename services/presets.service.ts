@@ -46,7 +46,7 @@ export class PresetsService {
       delete: new Button(
         EventActions.delete,
         Color.transparent,
-        'trash',
+        'delete',
         Color.warn
       ),
 
@@ -67,7 +67,7 @@ export class PresetsService {
       close: new Button(
         EventActions.close,
         Color.transparent,
-        'x',
+        'close',
         Color.primary
       ),
 

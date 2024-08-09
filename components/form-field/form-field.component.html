@@ -1,178 +1,188 @@
-<mat-form-field
-  *ngIf="field"
-  appearance="fill"
-  class="full"
-  [floatLabel]="floatLabel"
->
-  <mat-label>
-    <label class="mat-body-2">{{ field.label }}</label>
-  </mat-label>
+@if (field) {
+  <mat-form-field appearance="fill" class="full" [floatLabel]="floatLabel">
+    <mat-label>
+      <label class="mat-body-2">{{ field.label }}</label>
+    </mat-label>
 
-  <ng-container *ngIf="field.type == types.text">
-    <input
-      #input
-      matInput
-      [formControl]="field.control"
-      (keyup.enter)="emit('submit')"
-    />
-  </ng-container>
+    @switch (field.type) {
+      @case (types.text) {
+        <input
+          #input
+          matInput
+          [formControl]="field.control"
+          (keyup.enter)="emit('submit')"
+        />
+      }
 
-  <ng-container *ngIf="field.type == types.number">
-    <input
-      #input
-      matInput
-      class="text-right"
-      autofocus
-      onfocus="this.select()"
-      (keyup.enter)="emit('submit')"
-      [formControl]="field.control"
-    />
-  </ng-container>
+      @case (types.number) {
+        <input
+          #input
+          matInput
+          class="text-right"
+          autofocus
+          onfocus="this.select()"
+          (keyup.enter)="emit('submit')"
+          [formControl]="field.control"
+        />
+      }
 
-  <ng-container *ngIf="field.type == types.measurement">
-    <input
-      #input
-      matInput
-      class="text-right pr-2"
-      onfocus="this.select()"
-      [formControl]="field.control"
-    />
-    <div class="suffix-fix">
-      <label matTextSuffix class="mat-caption">{{
-        field.suffix | uppercase
-      }}</label>
-    </div>
-  </ng-container>
-
-  <ng-container *ngIf="field.type == types.email">
-    <input #input matInput [formControl]="field.control" />
-  </ng-container>
-
-  <ng-container *ngIf="field.type == types.phone">
-    <input #input matInput [formControl]="field.control" />
-  </ng-container>
-
-  <ng-container *ngIf="field.type == types.password">
-    <input
-      #input
-      matInput
-      [formControl]="field.control"
-      [type]="password_type"
-    />
-    <span matSuffix (click)="togglePasswordVisibility()">
-      <app-icon [name]="password_icon" [color]="Color.primary"></app-icon>
-    </span>
-  </ng-container>
-
-  <ng-container *ngIf="field.type == types.date">
-    <input
-      #input
-      matInput
-      [formControl]="field.control"
-      [matDatepicker]="picker"
-      (focus)="picker.open()"
-    />
-
-    <mat-datepicker #picker></mat-datepicker>
-    <div class="suffix-fix">
-      <app-icon
-        *ngIf="field.control.enabled"
-        name="calendar"
-        (click)="picker.open()"
-        [color]="Color.primary"
-      >
-      </app-icon>
-    </div>
-  </ng-container>
-
-  <ng-container *ngIf="field.type == types.blob">
-    <textarea
-      #input
-      matInput
-      tabindex="0"
-      (focus)="emit('focus')"
-      (blur)="emit('blur')"
-      [formControl]="field.control"
-      rows="3"
-    ></textarea>
-  </ng-container>
-
-  <ng-container *ngIf="field.type == types.select">
-    <mat-select [formControl]="field.control" #input>
-      <ng-container *ngIf="field.options | async as options; else loadingList">
-        <div *ngFor="let option of options">
-          <mat-option [value]="option.id"
-            >{{ option | displaySelect }}
-          </mat-option>
+      @case (types.measurement) {
+        <input
+          #input
+          matInput
+          class="text-right pr-2"
+          onfocus="this.select()"
+          [formControl]="field.control"
+        />
+        <div class="suffix-fix">
+          <label matTextSuffix class="mat-caption">{{
+            field.suffix | uppercase
+          }}</label>
         </div>
-      </ng-container>
+      }
 
-      <ng-template #loadingList> Loading... </ng-template>
-    </mat-select>
-  </ng-container>
+      @case (types.email) {
+        <input #input matInput [formControl]="field.control" />
+      }
 
-  <ng-container *ngIf="field.type == types.autocomplete">
-    <mat-select [formControl]="field.control" #input>
-      <ng-container *ngIf="field.options | async as options; else loadingList">
-        <div *ngFor="let option of options">
-          <mat-option [value]="option.id"
-            >{{ option | displaySelect }}
-          </mat-option>
+      @case (types.phone) {
+        <input #input matInput [formControl]="field.control" />
+      }
+
+      @case (types.password) {
+        <ng-container>
+          <input
+            #input
+            matInput
+            [formControl]="field.control"
+            [type]="password_type"
+          />
+
+          <span matSuffix (click)="togglePasswordVisibility()">
+            <app-icon [name]="password_icon" [color]="Color.primary"></app-icon>
+          </span>
+        </ng-container>
+      }
+
+      @case (types.date) {
+        <input
+          #input
+          matInput
+          [formControl]="field.control"
+          [matDatepicker]="picker"
+          (focus)="picker.open()"
+        />
+
+        <mat-datepicker #picker></mat-datepicker>
+
+        @if (field.control.enabled) {
+          <app-icon
+            matSuffix
+            class="suffix-fix"
+            name="event"
+            (click)="picker.open()"
+            [color]="Color.primary"
+          >
+          </app-icon>
+        }
+      }
+
+      @case (types.blob) {
+        <textarea
+          #input
+          matInput
+          tabindex="0"
+          (focus)="emit('focus')"
+          (blur)="emit('blur')"
+          [formControl]="field.control"
+          rows="3"
+        ></textarea>
+      }
+
+      @case (types.select) {
+        <mat-select [formControl]="field.control" #input>
+          @if (field.options | async; as options) {
+            <div *ngFor="let option of options">
+              <mat-option [value]="option.id"
+                >{{ option | displaySelect }}
+              </mat-option>
+            </div>
+          } @else {
+            <label>Loading...</label>
+          }
+        </mat-select>
+      }
+
+      @case (types.autocomplete) {
+        <mat-select [formControl]="field.control" #input>
+          @if (field.options | async; as options) {
+            <div *ngFor="let option of options">
+              <mat-option [value]="option.id"
+                >{{ option | displaySelect }}
+              </mat-option>
+            </div>
+          } @else {
+            <label>Loading...</label>
+          }
+        </mat-select>
+      }
+    }
+
+    @if (field.hint) {
+      <mat-hint>
+        <label class="mat-caption">{{ field.hint }}</label>
+      </mat-hint>
+    }
+
+    @if (field?.control?.errors != null) {
+      <mat-error>
+        <div class="f-row j-start">
+          @if (field.control.hasError("minLength")) {
+            <label class="">Value too <b>short</b>.</label>
+            <label class=""
+              >Length:
+              <b>{{ field.control.errors?.["minlength"].actualLength }}</b>
+            </label>
+
+            <label class=""
+              >Minimum:
+              <b>{{ field.control.errors?.["minlength"].requiredLength }}</b>
+            </label>
+          }
+
+          @if (field.control.hasError("pattern")) {
+            <label class="mat-caption">Invalid <b>format</b>.</label>
+          }
+
+          @if (field.control.hasError("min")) {
+            <label class="mat-caption">Value <b>too small</b>.</label>
+          }
+
+          @if (field.control.hasError("max")) {
+            <label class="mat-caption">Value <b>too large</b>.</label>
+          }
+
+          @if (field.control.hasError("minlength")) {
+            <label class="mat-caption">Value <b>too short</b>.</label>
+          }
+
+          @if (field.control.hasError("maxlength")) {
+            <label class="mat-caption">Value <b>too long</b>.</label>
+          }
+
+          @if (field.control.hasError("match")) {
+            <label class="mat-caption">Password must <b>match</b>.</label>
+          }
+
+          @if (field.control.hasError("required")) {
+            <label class="mat-caption">Value <b>required</b>.</label>
+          }
+
+          @if (field.control.hasError("invalidNumber")) {
+            <label class="mat-caption">Invalid <b>number</b>.</label>
+          }
         </div>
-      </ng-container>
-
-      <ng-template #loadingList> Loading... </ng-template>
-    </mat-select>
-  </ng-container>
-
-  <mat-hint *ngIf="field.hint">
-    <label class="mat-caption">{{ field.hint }}</label>
-  </mat-hint>
-
-  <mat-error *ngIf="field?.control?.errors != null">
-    <div class="f-row j-start" *ngIf="field.control.hasError('minLength')">
-      <label class="">Value too <b>short</b>.</label>
-      <label class=""
-        >Length:
-        <b>{{ field.control.errors?.["minlength"].actualLength }}</b>
-      </label>
-
-      <label class=""
-        >Minimum:
-        <b>{{ field.control.errors?.["minlength"].requiredLength }}</b>
-      </label>
-    </div>
-
-    <div class="f-row j-start" *ngIf="field.control.hasError('pattern')">
-      <label class="mat-caption">Invalid <b>format</b>.</label>
-    </div>
-
-    <div class="f-row j-start" *ngIf="field.control.hasError('min')">
-      <label class="mat-caption">Value <b>too small</b>.</label>
-    </div>
-
-    <div class="f-row j-start" *ngIf="field.control.hasError('max')">
-      <label class="mat-caption">Value <b>too large</b>.</label>
-    </div>
-
-    <div class="f-row j-start" *ngIf="field.control.hasError('minlength')">
-      <label class="mat-caption">Value <b>too short</b>.</label>
-    </div>
-
-    <div class="f-row j-start" *ngIf="field.control.hasError('maxlength')">
-      <label class="mat-caption">Value <b>too long</b>.</label>
-    </div>
-
-    <div class="f-row j-start" *ngIf="field.control.hasError('match')">
-      <label class="mat-caption">Password must <b>match</b>.</label>
-    </div>
-
-    <div class="f-row j-start" *ngIf="field.control.hasError('required')">
-      <label class="mat-caption">Value <b>required</b>.</label>
-    </div>
-
-    <div class="f-row j-start" *ngIf="field.control.hasError('invalidNumber')">
-      <label class="mat-caption">Invalid <b>number</b>.</label>
-    </div>
-  </mat-error>
-</mat-form-field>
+      </mat-error>
+    }
+  </mat-form-field>
+}

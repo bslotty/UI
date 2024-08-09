@@ -20,21 +20,7 @@
   } 
   
   @if (options.range?.enabled) {
-  <div class="f-row j-center g-1">
-    <label class="mat-body-2">{{ options.range.start | date : "Y-MM-dd" }}</label>
-    <label class="mat-body-2">-</label>
-    <label class="mat-body-2">{{ options.range.end | date : "Y-MM-dd" }}</label>
-    <a
-      (click)="resetRange()"
-      class="mat-elevation-z0"
-    >
-      <app-icon
-        name="close"
-        [color]="Color.primary"
-      >
-      </app-icon>
-    </a>
-  </div>
+  <app-list-filter-date-range></app-list-filter-date-range>
   } 
   
   @if (options.search.length > 0) {

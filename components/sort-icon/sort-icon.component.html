@@ -5,12 +5,12 @@
         <div *ngIf="sort.active == name; else inactive">
             <app-icon
                 *ngIf="sort.direction == SortDirection.Asc"
-                name='chevron-up'
+                name='stat_1'
                 [color]="Color.accent"
             ></app-icon>
             <app-icon
                 *ngIf="sort.direction == SortDirection.Desc"
-                name='chevron-down'
+                name='stat_minus_1'
                 [color]="Color.warn"
             ></app-icon>
         </div>
