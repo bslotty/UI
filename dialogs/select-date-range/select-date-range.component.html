@@ -1,15 +1,19 @@
-<app-section-header [title]="title"
+<div class="p-2">
+  <app-section-header
+    [title]="title"
     [buttons]="headerActions"
-    (event)="headerEvent($event)">
-</app-section-header>
+    (event)="headerEvent($event)"
+  >
+  </app-section-header>
 
-<form [formGroup]="form" >
-    <div class="f-row fd-col j-center a-stretch g-3 p-2">
-        <div >
-            <app-form-field [field]="controls[0]"></app-form-field>
-        </div>
-        <div >
-            <app-form-field [field]="controls[1]"></app-form-field>
-        </div>
+  <form [formGroup]="form">
+    <div class="f-row fd-col j-center a-stretch g-3">
+      <div>
+        <app-form-field [field]="controls[0]"></app-form-field>
+      </div>
+      <div>
+        <app-form-field [field]="controls[1]"></app-form-field>
+      </div>
     </div>
-</form>
+  </form>
+</div>
