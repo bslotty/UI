@@ -35,9 +35,9 @@
           [formControl]="field.control"
         />
         <div class="suffix-fix">
-          <label matTextSuffix class="mat-caption">{{
-            field.suffix | uppercase
-          }}</label>
+          <label matTextSuffix>
+            <b>{{ field.suffix | uppercase }}</b>
+          </label>
         </div>
       }
 
