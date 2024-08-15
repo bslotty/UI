@@ -14,27 +14,6 @@ import { FormInputField } from '../models/form_input_field';
   providedIn: 'root',
 })
 export class FormGeneralService {
-  public defaultFormControls = {
-    id: [`create_${Math.floor(Math.random() * 100000000)}`, []],
-    string: [
-      '',
-      [
-        Validators.required,
-        Validators.maxLength(1024),
-        Validators.minLength(1),
-      ],
-    ],
-    date: [new Date(), [Validators.required]],
-    float: [
-      0,
-      [
-        Validators.required,
-        Validators.maxLength(1024),
-        Validators.pattern('[0-9.]+'),
-        Validators.min(0.001),
-      ],
-    ],
-  };
   constructor(public builder: FormBuilder) {}
 
   isValid(form: UntypedFormGroup): boolean {
