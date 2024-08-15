@@ -1,43 +1,40 @@
-<div class="f-row j-start mb-2 g-5">
+<div class="f-row j-start mb-2 g-10">
   @if (options.page.enabled) {
-  <app-list-filter-paging
-    [paging]="options.page"
-    (event)="emit()"
-  ></app-list-filter-paging>
-  } 
-  
-  @if (options.preset){
-  <div>
-    <label class="mat-body-2">{{ options.preset | titleCaseAll }}</label>
-  </div>
-  } 
-  
-  @if (options.sort){
-  <app-list-filter-sort
-    [sort]="options.sort"
-    (event)="emit()"
-  ></app-list-filter-sort>
-  } 
-  
-  @if (options.range?.enabled) {
-  <app-list-filter-date-range></app-list-filter-date-range>
-  } 
-  
-  @if (options.search.length > 0) {
-  <div class="f-row j-center">
-    <div class="col-auto pe-2"></div>
-    <div class="col-auto">
-      <a
-        (click)="resetSearch()"
-        class="mat-elevation-z0"
-      >
-        <app-icon
-          name="close"
-          [color]="Color.primary"
-        >
-        </app-icon>
-      </a>
+    <app-list-filter-paging
+      [paging]="options.page"
+      (event)="emit()"
+    ></app-list-filter-paging>
+  }
+
+  @if (options.preset) {
+    <div>
+      <label class="mat-body-2">{{ options.preset | titleCaseAll }}</label>
     </div>
-  </div>
+  }
+
+  @if (options.sort) {
+    <app-list-filter-sort
+      [sort]="options.sort"
+      (event)="emit()"
+    ></app-list-filter-sort>
+  }
+
+  @if (options.range?.enabled) {
+    <app-list-filter-date-range
+      [range]="options.range"
+    ></app-list-filter-date-range>
+  }
+
+  @if (options.search.length > 0) {
+    <div class="f-row j-center g-2">
+      <div>
+        <label>{{ options.search }}</label>
+      </div>
+      <div>
+        <a (click)="resetSearch()" class="mat-elevation-z0">
+          <app-icon name="close" [color]="Color.primary"> </app-icon>
+        </a>
+      </div>
+    </div>
   }
 </div>

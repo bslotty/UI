@@ -10,7 +10,5 @@ export class ImgComponent {
   @Input() image: string  = ""// base64
 
 
-  constructor() {
-    // console.log("image: ", this.image);
-  }
+  constructor() { }
 }

@@ -15,7 +15,7 @@ export class PingService {
     this.config = new MatSnackBarConfig();
     this.config.horizontalPosition = "center";
     this.config.verticalPosition = "top";
-    this.config.duration = 3333;
+    this.config.duration = 333333;
   }
 
   send( color: Color, message: string) {

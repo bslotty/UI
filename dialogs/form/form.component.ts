@@ -25,17 +25,25 @@ export class FormComponent implements OnInit {
   title: string = 'NOT SET';
   message: string = 'NOT SET';
 
-  header_actions: Button[] = [
-    structuredClone(this._presets.buttons.save),
-    structuredClone(this._presets.buttons.close),
-  ];
+  public closeButton = new Button(
+    EventActions.delete,
+    Color.transparent,
+    'close',
+    Color.primary,
+  );
+  public saveButton = new Button(
+    EventActions.save,
+    Color.transparent,
+    'check',
+    Color.accent,
+  ).disable();
+  public headerButtons: Button[] = [this.saveButton, this.closeButton];
 
   constructor(
     private _diagref: MatDialogRef<FormComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
     private formUtil: FormGeneralService,
-    private _ping: PingService,
-    private _presets: PresetsService
+    private _ping: PingService
   ) {}
 
   ngOnInit(): void {
@@ -45,7 +53,6 @@ export class FormComponent implements OnInit {
     this.form = this.data.form;
     this.control_map = this.data.control_map;
 
-    this.header_actions[0].disabled = true;
     this.form.valueChanges.subscribe((v) => {
       this.updateButtonStatus();
     });
@@ -53,9 +60,9 @@ export class FormComponent implements OnInit {
 
   updateButtonStatus() {
     if (this.formUtil.isValid(this.form)) {
-      this.header_actions[0].disabled = false;
+      this.saveButton.enable();
     } else {
-      this.header_actions[0].disabled = true;
+      this.saveButton.disable();
     }
   }
 

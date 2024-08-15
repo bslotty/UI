@@ -17,9 +17,7 @@ export class ListFilterSortComponent implements OnInit {
   public fieldNames:string[] = [];
 
   ngOnInit(){
-    this.fieldNames = Object.keys(this.sort.enumList).filter(key => !isNaN(Number(this.sort.enumList[key])));
-    console.log("fields: ", this.fieldNames);
-  }
+    this.fieldNames = Object.keys(this.sort.enumList).filter(key => !isNaN(Number(this.sort.enumList[key])));}
 
 
   emit(){
@@ -35,7 +33,4 @@ export class ListFilterSortComponent implements OnInit {
     this.sort.active = this.sort.enumList[field];
     this.emit();
   }
-
-
-
 }

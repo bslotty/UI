@@ -4,10 +4,12 @@ import { Color } from '../../models/enums/mat_color';
 import { FormInputField } from '../../models/form_input_field';
 import { FloatLabelType } from '@angular/material/form-field';
 
+//":host { width: 100% }"
+
 @Component({
   selector: 'app-form-field',
   templateUrl: './form-field.component.html',
-  styles: [ ":host { width: 100% }" ]
+  styles: [  ]
 })
 export class FormFieldComponent implements OnInit {
 

@@ -7,6 +7,7 @@ import { Button } from '../../models/icon_button';
 import { PresetsService } from '../../services/presets.service';
 import { EventActions } from '../../models/enums/event_actions';
 import { ButtonEvent } from '../../models/button_event';
+import { Color } from '../../models/enums/mat_color';
 
 @Component({
   selector: 'app-confirm',
@@ -20,16 +21,21 @@ export class ConfirmComponent implements OnInit {
   title: string = "NOT SET";
   message: string = "NOT SET";
 
-  header_actions: Button[] = [
-    structuredClone(this._presets.buttons.complete),
-    structuredClone(this._presets.buttons.close),
-  ];
+  public closeButton = new Button(
+    EventActions.delete,
+    Color.transparent,
+    'close',
+    Color.primary,
+  );
+  public saveButton = new Button(
+    EventActions.save,
+    Color.transparent,
+    'check',
+    Color.accent,
+  );
+  public headerButtons: Button[] = [this.saveButton, this.closeButton];
 
-  constructor(
-    // private _diagref: MatDialogRef<ConfirmComponent>,
-    // @Inject(MAT_DIALOG_DATA) public data: any,
-    private _presets: PresetsService,
-  ) { }
+  constructor() { }
 
   ngOnInit(): void {
     this.title = this.data.title;
@@ -38,7 +44,7 @@ export class ConfirmComponent implements OnInit {
 
   header_event(event: ButtonEvent) {
     switch(event.action){
-      case EventActions.complete:
+      case EventActions.save:
         this.dialogRef.close(true);
         break;
 

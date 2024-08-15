@@ -43,10 +43,4 @@ export class ListFilterComponent implements OnInit {
     this.options.range = new FilterOptionsRange();
     this.emit();
   }
-
-
-
-  showSearch() {
-    console.log("search");
-  }
 }

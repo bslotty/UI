@@ -1,7 +1,7 @@
 export class FilterOptionsPaging {
   enabled      : boolean = false;
   start        : number  = 0;
-  length       : number  = 7;
+  length       : number  = 50;
   current_page: number   = 1;
   page_limit   : number  = 0;
   total_items : number   = 0;

@@ -16,7 +16,7 @@ export class Button {
 
   constructor(name: EventActions, bg_color: Color, icon_name: string, icon_color: Color ) {
     this.name          = name;
-    this.currentColors = new IconColors(Color.warn, Color.warn);
+    this.initialColors = new IconColors(bg_color, icon_color);
 
     this.setColor(bg_color);
     this.setIcon(icon_name, icon_color);

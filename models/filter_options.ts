@@ -29,6 +29,7 @@ export class FilterOptions {
 
     setRange(range: FilterOptionsRange){
       this.range = range;
+      this.range.enable();
       return this;
     }
 
