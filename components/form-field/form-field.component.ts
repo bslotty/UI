@@ -46,6 +46,10 @@ export class FormFieldComponent implements OnInit {
       this.phoneFormatter();
     }
 
+    if (this.field.type == this.types.creditCard){
+      this.creditCardFormatter();
+    }
+
     // if (this.field.type == this.types.number || this.field.type == this.types.measurement){
     //   this.floatLabel =
     // }
@@ -93,6 +97,37 @@ export class FormFieldComponent implements OnInit {
         formatted = `${m.slice(0,3)}-${m.slice(3,6)}-${m.slice(6,10)}`;
       } else {
         formatted = `${m.slice(0,3)}-${m.slice(3,6)}-${m.slice(6,10)} ${m.slice(10)}`;
+      }
+      
+      this.field.control?.setValue(formatted, { emitEvent: false });
+    });
+  }
+
+  creditCardFormatter(){
+    if (this.field.control == undefined){
+      return;
+    }
+
+
+    this.field.control.valueChanges.subscribe(v => {
+
+      let formatted = "";
+      const phone_regex = /\D/g;
+      let m = v.replace(phone_regex, '');
+
+      if ( m.length == 0 ){
+        this.field.control?.setValue(formatted, { emitEvent: false });
+        return;
+      }
+      
+      if (m.length <= 4) {
+        formatted = m.slice(0,4);
+      } else if (m.length > 4 && m.length <= 8) {
+        formatted = `${m.slice(0,4)}-${m.slice(4)}`;
+      } else if (m.length > 8 && m.length <= 12 ) {
+        formatted = `${m.slice(0,4)}-${m.slice(4,8)}-${m.slice(8,12)}`;
+      } else {
+        formatted = `${m.slice(0,4)}-${m.slice(4,8)}-${m.slice(8,12)}-${m.slice(12, 16)}`;
       }
       
       this.field.control?.setValue(formatted, { emitEvent: false });

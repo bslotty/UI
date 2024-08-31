@@ -10,6 +10,7 @@ export enum FormInputTypes {
     autocomplete,
     checkbox,
     measurement,
+    creditCard,
 
     //  App Specific
     customerSelect,

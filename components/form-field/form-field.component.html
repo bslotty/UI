@@ -1,5 +1,5 @@
 @if (field) {
-  <mat-form-field appearance="fill" class="full" [floatLabel]="floatLabel">
+  <mat-form-field appearance="fill" [floatLabel]="floatLabel">
     <mat-label>
       <label class="mat-body-2">{{ field.label }}</label>
     </mat-label>
@@ -46,6 +46,10 @@
       }
 
       @case (types.phone) {
+        <input #input matInput [formControl]="field.control" />
+      }
+
+      @case (types.creditCard) {
         <input #input matInput [formControl]="field.control" />
       }
 
@@ -138,7 +142,7 @@
       <mat-error>
         <div class="f-row j-start">
           @if (field.control.hasError("minLength")) {
-            <label class="">Value too <b>short</b>.</label>
+            <label class="">too <b>short</b>.</label>
             <label class=""
               >Length:
               <b>{{ field.control.errors?.["minlength"].actualLength }}</b>
@@ -155,27 +159,27 @@
           }
 
           @if (field.control.hasError("min")) {
-            <label class="mat-caption">Value <b>too small</b>.</label>
+            <label class="mat-caption"><b>Too small</b>.</label>
           }
 
           @if (field.control.hasError("max")) {
-            <label class="mat-caption">Value <b>too large</b>.</label>
+            <label class="mat-caption"><b>Too large</b>.</label>
           }
 
           @if (field.control.hasError("minlength")) {
-            <label class="mat-caption">Value <b>too short</b>.</label>
+            <label class="mat-caption"><b>Too short</b>.</label>
           }
 
           @if (field.control.hasError("maxlength")) {
-            <label class="mat-caption">Value <b>too long</b>.</label>
+            <label class="mat-caption"><b>Too long</b>.</label>
           }
 
           @if (field.control.hasError("match")) {
-            <label class="mat-caption">Password must <b>match</b>.</label>
+            <label class="mat-caption">Not<b>matching</b>.</label>
           }
 
           @if (field.control.hasError("required")) {
-            <label class="mat-caption">Value <b>required</b>.</label>
+            <label class="mat-caption"><b>Required</b>.</label>
           }
 
           @if (field.control.hasError("invalidNumber")) {
