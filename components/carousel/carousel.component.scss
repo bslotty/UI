@@ -1,0 +1,19 @@
+.carousel {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+
+  *:nth-child(1) {
+    border: 2px solid green;
+
+  }
+
+  *:nth-child(2) {
+    border: 2px solid red;
+  }
+
+  *:nth-child(3) {
+    border: 2px solid blue;
+  }
+}

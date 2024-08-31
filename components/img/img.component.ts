@@ -9,6 +9,8 @@ export class ImgComponent {
 
   @Input() image: string  = ""// base64
 
+  @Input() size: "base" | "small" = "base";
+
 
   constructor() { }
 }

@@ -1,4 +1,5 @@
 import { Component, Input } from "@angular/core";
+import { Color } from "../../models/enums/mat_color";
 
 @Component({
   selector: "app-carousel",
@@ -6,18 +7,7 @@ import { Component, Input } from "@angular/core";
   styleUrl: "./carousel.component.scss",
 })
 export class CarouselComponent {
+  readonly Color = Color
   @Input() imgs: string[] = [];
-  activeIndex: number = 0;
-
-  prev() {
-    if (this.activeIndex != 0) {
-      this.activeIndex = this.activeIndex - 1;
-    }
-  }
-
-  next() {
-    if (this.activeIndex != this.imgs.length-1) {
-      this.activeIndex = this.activeIndex + 1;
-    }
-  }
+  activeIndex: number = 1;
 }

@@ -7,7 +7,7 @@ import { Component, Input, OnInit } from "@angular/core";
 })
 export class TextComponent {
   @Input() level: TextVariant = 0;
-  @Input() label: string = "NOT SET";
+  @Input() label: string | number = "NOT SET";
 }
 
 export enum TextVariant {
