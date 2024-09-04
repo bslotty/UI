@@ -27,6 +27,7 @@ import { TextComponent } from './components/text/text.component';
 import { ImgComponent } from './components/img/img.component';
 import { NgOptimizedImage } from '@angular/common';
 import { CarouselComponent } from './components/carousel/carousel.component';
+import { RevolverComponent } from './components/revolver/revolver.component';
 
 @NgModule({
     imports: [
@@ -60,6 +61,7 @@ import { CarouselComponent } from './components/carousel/carousel.component';
         TextComponent,
         ImgComponent,
         CarouselComponent,
+        RevolverComponent
     ],
     exports: [
         MaterialModule,
@@ -82,7 +84,8 @@ import { CarouselComponent } from './components/carousel/carousel.component';
         SortIconComponent,
         TextComponent,
         ImgComponent,
-        CarouselComponent
+        CarouselComponent,
+        RevolverComponent
     ],
     providers: []
 })

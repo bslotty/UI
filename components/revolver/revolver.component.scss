@@ -1,0 +1,50 @@
+.revolver {
+  overflow: hidden;
+  user-select: none;
+
+  --gap: 20px;
+  display: flex;
+  gap: var(--gap);
+
+  > div {
+    flex-shrink: 0;
+    min-width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--gap);
+
+    animation: revolve 20s linear infinite;
+  }
+
+   //   Fading
+   &:before,
+   &:after {
+     position: absolute;
+     top: 0;
+     width: 5rem;
+     height: 100%;
+     content: "";
+     z-index: 1;
+   }
+ 
+   &:before {
+     left: 0;
+     background: linear-gradient(to right, var(--bg-light) 0%, transparent 100%);
+   }
+   &:after {
+     right: 0;
+     background: linear-gradient(to left, var(--bg-light) 0%, transparent 100%);
+   }
+
+}
+
+.revolver:hover ul {
+    animation-play-state: paused;
+}
+
+@keyframes revolve {
+    to {
+        transform: translateX(calc(-100% - var(--gap)));
+      }
+}
