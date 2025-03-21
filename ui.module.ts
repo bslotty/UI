@@ -28,6 +28,7 @@ import { ImgComponent } from './components/img/img.component';
 import { NgOptimizedImage } from '@angular/common';
 import { CarouselComponent } from './components/carousel/carousel.component';
 import { RevolverComponent } from './components/revolver/revolver.component';
+import { IncrementerComponent } from './components/incrementer/incrementer.component';
 
 @NgModule({
     imports: [
@@ -61,7 +62,8 @@ import { RevolverComponent } from './components/revolver/revolver.component';
         TextComponent,
         ImgComponent,
         CarouselComponent,
-        RevolverComponent
+        RevolverComponent,
+        IncrementerComponent
     ],
     exports: [
         MaterialModule,
@@ -85,7 +87,8 @@ import { RevolverComponent } from './components/revolver/revolver.component';
         TextComponent,
         ImgComponent,
         CarouselComponent,
-        RevolverComponent
+        RevolverComponent,
+        IncrementerComponent
     ],
     providers: []
 })
